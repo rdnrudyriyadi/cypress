@@ -2,35 +2,33 @@
 
 describe('Login Test for Jubelio', () => {
   it('should successfully log in with valid credentials', () => {
-    // Kunjungi halaman login
+    // Visit login page
     cy.visit('https://v2.jubelio.com/')
 
-    // Temukan dan isi field email/username
+    // Fill the field email/username
     cy.get('input[name="email"]').type('rudyriyadi@gmail.com')
 
-    // Temukan dan isi field password
+    // Fill the field password
     cy.get('input[name="password"]').type('4sdfgh1!')
 
-    // Temukan dan klik tombol login
+    // Click login button
     cy.get('button[type="submit"]').click()
 
-    // Verifikasi bahwa login berhasil, misalnya dengan memeriksa URL atau adanya elemen spesifik di dashboard
+    // Verified succesfully login
     cy.url().should('include', '/shared/questionaire')
 
-    /*cy.get('.Bantu kami untuk mengenali Anda lebih jauh').should('be.visible')*/
+    // cypress/support/e2e.js or cypress/support/index.js
 
-// cypress/support/e2e.js or cypress/support/index.js
-
-Cypress.on('uncaught:exception', (err, runnable) => {
-  // Ignore the ResizeObserver loop error
-  if (err.message.includes('ResizeObserver loop completed with undelivered notifications')) {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+    // Ignore the ResizeObserver loop error
+        if (err.message.includes('ResizeObserver loop completed with undelivered notifications')) {
     // Returning false here prevents Cypress from failing the test
-    return false;
+        return false;
   }
-  // Returning true would let Cypress fail the test
-  return true;
-});
+    // Returning true would let Cypress fail the test
+        return true;
 
+});
 
 
     // Inventory
@@ -58,62 +56,45 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     cy.contains('div', 'Celana panjang pria').click()
 
 
-      // Wait for the specific button to be visible
-      cy.get('#content > div > div > form > div > div.title-card.w-100 > div.MuiContainer-root.pt-3.pb-3.d-flex.justify-content-between.title-card-container.css-10ur324 > div.css-vb6e92 > button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.ml-1.shadow-none.text-white.btn-outline-primary.false.css-1hw9j7s')
-        .should('be.visible')
-        .click()
+    // Wait for the specific button to be visible
+    cy.get('#content > div > div > form > div > div.title-card.w-100 > div.MuiContainer-root.pt-3.pb-3.d-flex.justify-content-between.title-card-container.css-10ur324 > div.css-vb6e92 > button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.ml-1.shadow-none.text-white.btn-outline-primary.false.css-1hw9j7s')
+      .should('be.visible').click()
 
-        // Optionally, set up any global configurations or intercepts
+    // Optionally, set up any global configurations or intercepts
     Cypress.on('uncaught:exception', (err, runnable) => {
-      // Ignore specific errors and continue test execution
+
+    // Ignore specific errors and continue test execution
       if (err.message.includes('u is not a function')) {
         return false
       }
-      return true
+        return true
     })
 
-      // Edit stock
-      cy.get('a.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways.text-link.font-weight-bold.css-x8nsji')
-      .contains('ADJ-000000014')
-      .should('be.visible')
-      .click()
+    // Edit stock
+    cy.get('a.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways.text-link.font-weight-bold.css-x8nsji')
+    .contains('ADJ-000000014').should('be.visible').click()
 
-        // Click the Edit button
-        cy.get('button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary')
-        .contains('Edit')
-        .click();
+    // Click the Edit button
+    cy.get('button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary')
+      .contains('Edit').click();
 
-        //Edit stock
-        cy.get('span.css-vrer1y').type('100');
+    //Edit stock
+    cy.get('span.css-vrer1y').type('100');
 
-        //Click Save button
-        cy.get('#content > div > div > form > div > div.title-card.w-100 > div.MuiContainer-root.pt-3.pb-3.d-flex.justify-content-between.title-card-container.css-10ur324 > div.css-vb6e92 > button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.ml-1.shadow-none.text-white.btn-outline-primary.false.css-1hw9j7s')
-        .should('be.visible')
-        .click()
+    //Click Save button
+    cy.get('#content > div > div > form > div > div.title-card.w-100 > div.MuiContainer-root.pt-3.pb-3.d-flex.justify-content-between.title-card-container.css-10ur324 > div.css-vb6e92 > button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.ml-1.shadow-none.text-white.btn-outline-primary.false.css-1hw9j7s')
+    .should('be.visible')
+    .click()
 
-        //Close adjustment stock page
-        cy.get('[data-testid="CloseIcon"]').first().click();
+    //Close adjustment stock page
+    cy.get('[data-testid="CloseIcon"]').first().click();
 
+    //Search Order
+    cy.get('.MuiOutlinedInput-root').first().type('ADJ-000000014')
+    cy.get('.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-fullWidth.MuiButtonBase-root.css-1qelgoy')
+    .click();
 
-        //Search Order
-        cy.get('.MuiOutlinedInput-root').first().type('ADJ-000000014')
-
-
-        cy.get('.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-fullWidth.MuiButtonBase-root.css-1qelgoy')
-  .click();
-
-
-
-
-
-
-       
-
-
-
-
-    
-     
+   
 
 
 
