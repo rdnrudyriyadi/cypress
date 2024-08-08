@@ -67,7 +67,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
      .and('contain', 'Pusat'); */
 
      cy.get('input[placeholder="Pilih pelanggan"]')
-     .type('Akulaku');
+     .type('Akulaku')
+     .click();
+
+     cy.get('input[placeholder="Pilih lokasi"]')
+     .type('Pusat')
+     .click ();
+
 
 
 
