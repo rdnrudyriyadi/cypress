@@ -92,56 +92,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   cy.get('button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-fullWidth.MuiButtonBase-root.css-1qelgoy')
   .click();
 
-
-
-
-
-
-
-
-   /* // Optionally, set up any global configurations or intercepts
-    Cypress.on('uncaught:exception', (err, runnable) => {
-
-    // Ignore specific errors and continue test execution
-      if (err.message.includes('u is not a function')) {
-        return false
-      }
-        return true
-    })
-
-
-    // Edit stock
-    cy.wait (5000)
-    cy.get('a.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways.text-link.font-weight-bold.css-x8nsji')
-    .contains('ADJ-000000045') 
-    .should('be.visible') 
-    .click()
-
-    // Click the Edit button
-    cy.wait(2000)
-    cy.get('button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary')
-      .contains('Edit') 
-      .click(); 
-
-    //Edit stock
-    cy.wait (2000)
-    cy.get('span.css-vrer1y').type('100');
-
-    //Click Save button
-    cy.get('#content > div > div > form > div > div.title-card.w-100 > div.MuiContainer-root.pt-3.pb-3.d-flex.justify-content-between.title-card-container.css-10ur324 > div.css-vb6e92 > button.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButtonBase-root.ml-1.shadow-none.text-white.btn-outline-primary.false.css-1hw9j7s')
-    .should('be.visible')
-    .click()
-
-    //Close adjustment stock page
-    cy.get('[data-testid="CloseIcon"]').first().click();
-
-    //Search Order
-    cy.wait(5000) 
-    cy.get('.MuiOutlinedInput-root').first().type('ADJ-000000045')
-    cy.get('.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-fullWidth.MuiButtonBase-root.css-1qelgoy')
-    .click(); */
-
-  
-
   })
 })
